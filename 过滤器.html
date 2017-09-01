@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <script src="jquery3.x.js"></script>
+    <title></title>
+    <script type="text/javascript">
+        //$("tr:first")               选择所有tr元素的第一个
+        //$("tr:last")                选择所有tr元素的最后一个
+        //$("tr:even")               选择所有的tr元素的第0，2，4... ...个元素（注意：因为所选择的多个元素时为数组，所以序号是从0开始）
+        //$("tr:odd")                选择所有的tr元素的第1，3，5... ...个元素
+        //$("td:eq(2)")             选择所有的td元素中序号为2的那个td元素
+        //$("td:gt(4)")             选择td元素中序号大于4的所有td元素
+        //$("td:lt(4)")              选择td元素中序号小于4的所有的td元素
+        //$(":header")
+        //$("div:animated")
+        $(function () {
+        $(":text:first").css("background", "red");
+        $(":text:last").css("background", "green");
+        $(":text:not(:first)").val("11");
+        $(":text:odd").css("width", "50px")
+        $(":text:lt(1)").css("height","30px");
+        $(":text:gt(7)").css("height", "30px");
+        $(":text:eq(1)").css("height", "60px");
+
+    })
+
+    </script>
+</head>
+<body>
+<input type="text" name="name" value="" />
+<input type="text" name="name" value="" />
+<input type="text" name="name" value="" />
+<input type="text" name="name" value="" />
+<input type="text" name="name" value="" />
+<input type="text" name="name" value="" />
+<input type="text" name="name" value="" />
+<input type="text" name="name" value="" />
+<input type="text" name="name" value="" />
+<input type="text" name="name" value="" />
+<input type="text" name="name" value="" />
+</body>
+</html>

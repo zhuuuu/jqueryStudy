@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+       .bg{
+             background-color:Yellow;
+        }
+    </style>
+    <script src="jquery3.x.js"></script>
+    <script>
+        //     样式操作
+        //1. css(<style 设置行内样式)
+        //      2. 类样式(设置标签的class属性)
+        //         获取样式attr("class")  设置样式attr("class","myclass")  追加样式addClass("myclss")(不影响其他形式)
+        //        移除样式removeClass("myclss")  切除样式.toggleClass("myclss")  判断是否存在样式hasClass("myclss")
+        //        focus获得光标
+        //        blur失去光标
+        //        setInterval()定时器
+        //        clearInterval()停止定时器
+        // 例如 给class属性重新赋值 $("txt").attr("class","bg")
+        // 聚焦控件:
+        //  .bg{
+        //   background-color:Yellow
+        //   }
+        $(function () {
+            $("input").focus(function () {
+                $(this).addClass("bg").siblings().removeClass("bg");
+            })
+        })
+    </script>
+</head>
+<input class="bg" type="text"><br>
+<input type="text"><br>
+<input type="text">
+<body>
+</body>
+
+</html>

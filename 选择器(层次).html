@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery3.x.js"></script>
+    <script>
+        //层次选择器
+        //后代（空格 >）和兄弟（+ ~）
+        //(1)$("div li")获取div下的所有li元素（后代，子、子的子。。。。）
+        //(2)$("div>li")获取div下的直接li子元素.只在后代中找符合第二个选择器的元素,不能在子子后代..中找
+        //(3)$("menuitem+div")获取样式名为menuitem之后的第一个div元素。+之后的紧挨的第一个元素，如果紧挨的第一个元素 不符合选择器，就不会找到
+        //(4)$("menuitem~div")获取样式名为menuitem之后的所有div元素。~之后的所有符合选择器的元素   从后面兄弟节点中找，后面兄弟节点子节点的元素即使符合，也选不中
+        $(function () {
+            $("#d1 p").css("background", "red");
+            $("#d1>p").css("background", "pink");
+            //#d1之后的近邻的div
+            $("#d1+div").css("background", "yellow");//这样就会找不到 紧挨着的符合选择器
+            $("#d1+p").css("background", "yellow");
+            $("#d1~p").css("background", "green");
+
+        })
+    </script>
+</head>
+<body>
+<div id="d1">d1d1ddd11
+    <div>111111
+        <p>ppppp</p>
+    </div>
+    <p>cccccccc</p>
+</div>
+<p>p1pp1p1p1p1p1</p>
+<div class="bg">222222</div>
+<p>p2p2p2pp2p2p2p2</p>
+<div>333333
+    <p>666666</p>
+</div>
+<div>444444</div>
+<div>555555</div>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #d1, #d2 {
+            width: 300px;
+            height: 300px;
+            background-color: red;
+        }
+
+        #d11,#d22 {
+            width: 100px;
+            height: 100px;
+            background-color: yellow;
+        }
+    </style>
+    <script src="https://cdn.bootcss.com/jquery/1.12.3/jquery.js"></script>
+    <script>
+        //从外往里冒泡
+        //mouseover() 存在事件冒泡
+        //mouseenter() 防止事件冒泡
+        //return false 在事件响应函数中 return false可以取消事件冒泡
+        //e.stopPropagation() 取消事件冒泡
+        //取消事件的默认行为，如a标签和submit表单的提交
+        //取消事件的默认行为：在方法体中加上  1. return false 2. e.preventDefault() 例如阻止 a 标签，和submit提交功能
+        //$("table,tr,td,p").click()复合选择器
+        $(function () {
+            var num1 = 0;
+            $("#d1").mouseover(function () {
+                num1++;
+                $("#d11").text(num1);
+
+            })
+            var num2 = 0;
+            $("#d2").mouseenter(function () {
+                num2++;
+                $("#d22").text(num2);
+            })
+        })
+    </script>
+</head>
+<body>
+<div id="d1">
+    <div id="d11"></div>
+</div>
+<br/>
+<div id="d2">
+    <div id="d22"></div>
+</div>
+</body>
+</html>

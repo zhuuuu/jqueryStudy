@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="https://cdn.bootcss.com/jquery/1.12.3/jquery.js"></script>
+    <!--<script src="jquery3.x.js"></script>-->
+    <script>
+        $(function () {
+            //另外的思路，当选中的个数小于选项的个数，全选 false    =true
+            $("#d1").click(function () {//this点击的谁的结果集的DOM对象
+                $(":checkbox[name=na]").prop("checked", $(this).prop("checked")); //jquery中的checked 是true来表示checked="checked"
+            })
+
+
+            //有一个选项没有选中，全选要取消
+            //选项 全部选中，全选要选中
+            //给选项checkedbox注册事件
+            //为全部选中，全选要选中。循环结束做准备
+            $(":checkbox[name=na]").click(checkSingle); //此写方法名，不带().只是注册，不是调用
+
+            //反选
+            $("#d2").click(function () {
+                $(":checkbox[name=na]").each(function () {//this each的谁的结果集的DOM对象
+                    //对选项的状态取反
+                    $(this).prop("checked", !$(this).prop("checked"));
+                    checkSingle();
+
+                });
+            })
+        })
+        //根据选项check判断全选是否被选中 根据子的checkbox判断父的checkbox是否被选中
+        function checkSingle() {
+            //假设父的checkbox被选中
+            var isCk = true;
+            $(":checkbox[name=na]").each(function () {
+                if (!$(this).prop("checked")) {//有一个选项没有选中
+                    isCk = false;
+                    return false; //break.循环跳出   //return true 相当continue 跳出本次循环 继续下次循环
+                }
+            });
+            //设置父的CheckBox选中状态
+            $("#d1").prop("checked", isCk);
+
+        }
+    </script>
+</head>
+<body>
+<input type="checkbox" name="na" value="c1"/>吃饭
+<input type="checkbox" name="na" value="c2"/>睡觉
+<input type="checkbox" name="na" value="c3"/>看电视
+
+<input type="checkbox" id="d1"/>全选
+<input type="button" value="反选" id="d2"/>
+</body>
+</html>

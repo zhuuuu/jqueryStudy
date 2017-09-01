@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery3.x.js"></script>
+    <script>
+        //动态生成网站列表
+      $(function(){
+         var json=[{"name":"sgloe","url":"http://www.baidu.com"},
+                   {"name":"sgloe","url":"http://www.baidu.com"},
+                   {"name":"sgloe","url":"http://www.baidu.com"}];
+        //动态创建控件
+          var $table=$("<table id='tb'></table>");
+          $table.attr("border","1px");
+          //把table添加到div中
+          $("#d1").append($table);
+          $.each(json,function () {
+              //this是json数组中的每一项（json对象）
+              //tr
+              var $tr=$("<tr></tr>");
+              //把tr放到table中
+              $table.append($tr);
+              //td
+              var $td=$("<td><a href="+this.url+">"+this.name+"</a></td>");
+              $tr.append($td);
+              //td
+              $td=$("<td>"+this.url+"</td>");
+              $tr.append($td);
+          })
+      })
+    </script>
+</head>
+<body>
+<div id="d1"></div>
+</body>
+</html>

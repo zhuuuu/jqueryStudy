@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #tooltips
+        {
+            width:600px;
+            height:500px;
+            border:1px solid red;
+            position:absolute;
+        }
+    </style>
+    <script src="jquery3.x.js"></script>
+    <script>
+        $(function () {
+            var json = {
+                "图片1": { "name": "图片1", "href": "http://5b0988e595225.cdn.sohucs.com/images/20170626/4cf7f41fe6804f75a5c08d10c95083a9.png", "des": "备注1" },
+                "图片2": { "name": "图片2", "href": "http://5b0988e595225.cdn.sohucs.com/images/20170626/7deebc85070a425ca3b6364e05899fd5.png", "des": "备注2" },
+                "图片3": { "name": "图片3", "href": "http://5b0988e595225.cdn.sohucs.com/images/20170626/2cf4a7adfdf84c35813ce9dc2940bacc.png", "des": "备注3" },
+                "图片4": { "name": "图片4", "href": "http://5b0988e595225.cdn.sohucs.com/images/20170626/cb86e43088584c70af15005442494822.png", "des": "备注4" }
+            };
+
+            //遍历json
+            $.each(json, function () {
+                //this !!!!!!!  json 对象中的每一个value（json对象）
+
+                //动态生成小图
+                var $smallImg = $("<img name='" + this.name + "' des='" + this.des + "' style='margin-left:10px' src='" + this.href + "' width='150px' />");
+                $("#imgs").append($smallImg);
+
+                //鼠标放上，动态生成详细层
+                $smallImg.hover(function (e) {
+                    //this !!!! 是小图  dom对象
+
+                    //鼠标放上，动态生成详细层
+                    var $div = $("<div id='tooltips'></div>");
+                    $div.appendTo($("#imgs"));
+                    //设置位置
+                    $div.css("top", e.pageY + "px").css("left", e.pageX + "px");
+
+                    //大图
+                    var $bigImg = $("<img src='" + $(this).attr("src") + "' width='550px' />");
+                    $div.append($bigImg);
+
+                    //详细信息
+
+                    var $p = $("<p>标题：" + $(this).attr("name") + "<br /> 备注：" + $(this).attr("des") + "</p>");
+                    $div.append($p);
+
+                }, function () {
+                    //鼠标离开，删除层
+                    var $div = $("#tooltips");
+                    if ($div.length > 0) {
+                        $div.remove();
+                    }
+
+                })
+            })
+
+        })
+    </script>
+</head>
+<body>
+<div id="imgs">
+
+</div>
+</body>
+</html>

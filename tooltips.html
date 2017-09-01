@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #d1 {
+            width: 100px;
+            height: 100px;
+            border: 1px solid pink;
+            position: absolute;
+        }
+    </style>
+    <script src="jquery3.x.js"></script>
+    <script>
+        //Tooltips 工具提示，是当鼠标停止在某一个工具元件时，界面对用户的提示
+        $(function () {
+            $("a").hover(function (e) {
+                //动态创建tooltips的div
+                var $div = $("<div id='d1'>信息</div>");
+                //设置div的位置
+                $div.css("left", e.pageX + "px").css("top", e.pageY + "px");
+                $("body").append($div)
+            }, function () {
+                //鼠标离开删除对象
+                var $div = $("#d1");
+                if ($div.length > 0)
+                    $div.remove();
+            })
+        })
+    </script>
+</head>
+<body>
+<a href="">淘宝</a>
+<br><br><br>
+<a href="">京东</a>
+<br><br><br>
+<a href="">唯品会</a>
+</body>
+</html>

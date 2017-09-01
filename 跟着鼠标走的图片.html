@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #d1{
+            position:absolute;
+        }
+    </style>
+    <script src="jquery3.x.js"></script>
+    <script>
+        $(document).mousemove(function (e) {
+            $("#d1").css("top",e.pageY+"px").css("left",e.pageX+"px");
+
+        })
+    </script>
+
+</head>
+<body>
+<img  id="d1" src="http://moviepic.manmankan.com/yybpic/yanyuan/5649.jpg" >
+</body>
+</html>

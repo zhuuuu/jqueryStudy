@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #d1 {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+    <!--<script src="jquery3.x.js"></script>-->
+    <script src="jquery3.x.js"></script>
+    <script>
+        $(function () {
+            $("input[value=show]").click(function () {
+                $("#d1").show(5000);
+            })
+            $("input[value=hide]").click(function () {
+                $("#d1").hide(5000);
+            })
+            //toggle是hide和show之间的切换
+
+            $("input[value=toggle]").click(function () {
+                $("#d1").toggle(1000);
+            })
+            //slideDown从上到下显示
+            $("input[value=slideDown]").click(function () {
+                $("#d1").slideDown(1000);
+            })
+            //slideUp从下到上消失
+            $("input[value=slideUp]").click(function () {
+                $("#d1").slideUp(1000);
+            })
+            $("input[value=slideToggle]").click(function () {
+                $("#d1").slideToggle(1000);
+            })
+            //fadeOut消失
+            $("input[value=fadeOut]").click(function () {
+                $("#d1").fadeOut(1000);
+            })
+            //fadeIn出现
+            $("input[value=fadeIn]").click(function () {
+                $("#d1").fadeIn(1000);
+            })
+            $("input[value=stop]").click(function () {
+                $("#d1").stop();
+            })
+        })
+    </script>
+</head>
+<body>
+<div id="d1"></div>
+<input type="button" value="show"><br>
+<input type="button" value="hide"><br>
+<input type="button" value="toggle"><br>
+<input type="button" value="slideDown"><br>
+<input type="button" value="slideToggle"><br>
+<input type="button" value="slideUp"><br>
+<input type="button" value="fadeOut"><br>
+<input type="button" value="fadeIn"><br>
+<input type="button" value="stop">
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery3.x.js"></script>
+    <script>
+        $(function () {
+            $("input[type=create]").click(function () {
+                //清空div
+                $("#d1").html("")(空字符串);
+                //            （ $("#d1").html();是获取div中的值）
+                //获取文本框或表单里面的值用val()
+                var num = parseInt($("#txt").val());
+                for (var i = 1; i <= num; i++) {
+                    var $txt = $("<input type='text'>");
+                    $("#d1").append($txt);
+                    //3个换行
+                    if (i % 3 == 0) {
+                        $("#d1").append($("<br/>"));
+                    }
+                }
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <input type="text" id="txt">
+    <input type="button" value="create">
+    <div id="d1"></div>
+</body>
+
+</html>

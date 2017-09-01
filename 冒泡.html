@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcss.com/jquery/1.12.3/jquery.js"></script>
+
+    <script>
+        //$(function () {
+        //    $('.item').click(function () {
+        //        alert($(this).text())
+        //        alert($(this).html())
+        //    })
+        //})
+        //function fn(obj) {
+        //    alert(obj.innerHTML)
+        //}
+        //               var parentFn= function (ev) {
+        function parentFn(e) {
+            alert(1)
+        }
+    </script>
+</head>
+
+<body>
+    <!--zencoding-->
+    <!--emmet-->
+    <div id="d1">
+        <!--<ul id="liebiao" onclick="alert(1)">-->
+        <ul id="liebiao" onclick="parentFn (event)">
+            <!--<li class="item" onclick="fn(this)">a</li>-->
+            <li class="item">b</li>
+            <li class="item">c</li>
+            <li class="item">d</li>
+            <li class="item">e</li>
+            <li class="item">f</li>
+            <li class="item">g</li>
+            <li class="item">h</li>
+        </ul>
+    </div>
+</body>
+
+</html>

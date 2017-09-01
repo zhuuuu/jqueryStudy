@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcss.com/jquery/1.12.3/jquery.js"></script>
+    <script>
+        // e.stopPropagation()取消事件冒泡
+        //取消事件的默认行为，如a标签和submit表单的提交
+        //取消事件的默认行为：在方法体中加上  1. return false 2. e.preventDefault() 例如阻止 a 标签，和submit提交功能
+        $(function () {
+            $("table,tr,td").click(function () {
+                alert(33333);
+            })
+            $("p").click(function (e) {
+                alert("ppp");
+                e.stopPropagation();
+            })
+        })
+    </script>
+</head>
+<body>
+<table>
+    <tr>
+        <td><p>1111</p></td>
+    </tr>
+</table>
+</body>
+</html>

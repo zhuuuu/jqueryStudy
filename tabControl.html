@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #qqTab
+        {
+            width:500px;
+            height:200px;
+            border:solid 1px gray;
+        }
+        #qqTab ul
+        {
+            margin:0px;
+            height:20px;
+           background-color: beige;
+            border-bottom:solid 1px gray;
+        }
+        #qqTab ul li
+        {
+            list-style-type:none;
+            float:left;
+            width:80px;
+            cursor:pointer;
+            text-align:center;
+        }
+        .activeTab
+        {
+            background-color:Red;
+            border-bottom-width:0px;
+        }
+    </style>
+    <script src="jquery3.x.js"></script>
+    <script>
+        $(function () {
+            //让当前li激活
+            $("#qqTab ul li").mouseover(function () {
+                $(this).addClass("activeTab").siblings().removeClass("activeTab");
+
+                //显示对应的详细新闻
+                //index获取对象的索引值
+                //方法:var index = $(this).index();  $("#tabs div").eq(index).......
+                var index = $(this).index();
+
+                $("#tabs div").hide().eq(index).fadeIn("fast");
+            })
+        })
+    </script>
+</head>
+<body>
+<div id="qqTab">
+    <ul>
+        <li class="activeTab">国内新闻</li>
+        <li>国际新闻</li>
+        <li>火星新闻</li>
+    </ul>
+    <div id="tabs">
+        <div id="tabPage1" >
+            国内新闻111111111111
+        </div>
+        <div id="tabPage2" style="display:none">
+            国际新闻2222222222222
+        </div>
+        <div id="tabPage3" style="display:none">
+            火星新闻333333333333
+        </div>
+    </div>
+</div>
+</body>
+</html>

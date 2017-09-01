@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery3.x.js"></script>
+    <script>
+        //获得发生事件时鼠标的位
+        //$(document).mousemove(function (e) {
+        //document.title(e.pageX+" .....  "+e.pageY);
+       // })
+        $(document).mousemove(function (e) {
+            $("#d1").html(e.pageX+" .....  "+e.pageY);
+        })
+    </script>
+</head>
+<body>
+<div id="d1"></div>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery3.x.js"></script>
+    <script src="遮盖层.js"></script>
+    <link rel="stylesheet" href="遮盖层.css">
+    <script>
+        $(function () {
+            $("#d1").click(function () {
+               $(".coverholder") .showCover();
+            })
+           $("#d2").click(function () {
+               $(".coverholder").closeCover();
+           })
+        })
+    </script>
+</head>
+<body>
+<input type="button" value="进入" id="d1">
+<div class="coverholder">登录
+    <input type="button" value="关闭" id="d2">
+</div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery3.x.js"></script>
+    <!--<script src="https://cdn.bootcss.com/jquery/1.12.3/jquery.js"></script>-->
+    <script>
+        //bind()绑定指定事件
+        //unbind()解除绑定事件
+        //one()绑定一次性事件，随后立即调用unbind()
+        //hover()两个事件：鼠标放上来和离开
+        //toggle()单击事件，切换进行
+        //        $(function () {
+        //      })
+        window.onload = function () {
+            $(":button[value=hover]").click(function () {
+                $("#btn").hover(function () {
+                    alert("hover enter");
+                }, function () {
+                    alert("hover leave");
+                })
+
+            })
+        }
+    </script>
+</head>
+
+<body>
+    <input type="button" value="你好" id="btn"><br/>
+    <input type="button" value="hover"><br/>
+    <img src="" alt="">
+</body>
+
+</html>

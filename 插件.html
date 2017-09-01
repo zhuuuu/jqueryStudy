@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery3.x.js"></script>
+    <!--<script src="插件.js"></script>-->
+    <script>
+        //扩展“静态方法”
+//                $.extend({max:function (a,b) {return a>b? a:b;},
+//                min:function (a,b) { return a>b? b:a;}
+//                })
+//                alert($.min (4,5));
+        //扩展“实例方法”
+        //先找到对象，再运行方法
+        //例中checked是方法名
+        $.fn.extend({checked: function () {$(this).attr("checked", true)},
+            unchecked:function () {$(this).attr("checked", false)}
+        })//扩展        当前对象选中
+        $(function () {
+            $("#d1").checked();
+            $("#d1").unchecked();
+        })
+    </script>
+</head>
+<body>
+<input type="checkbox" id="d1">
+</body>
+</html>

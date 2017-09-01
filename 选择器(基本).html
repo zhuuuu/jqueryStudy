@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery3.x.js"></script>
+    <script>
+        //规则：$(who).when({what})
+        $(function () {
+            //id选择器
+            //$("#d1").css("background","red");
+            //类选择器
+            //$(".c1").css("background","green");
+            //标签选择器
+            //$("p").css("background","yellow");
+            //jQuery中事件监听的写法：click()、leave()、focus()、blur()........
+            //当输入域失去焦点 (blur) 时
+            $("input").blur(function () {
+                $("input").css("background-color", "pink");
+            });
+            $(".c1").focus(function () {
+                $("p").text("zzzzzzz")
+
+            })
+            $("#d3").click(function () {
+                $("p").text("你们都是。。。。");
+            })
+            $("#d4").click(function () {
+                alert(111111111);
+                //取消后续内容的执行
+                //return false;
+            })
+            //复合选择器中间用(,)隔开
+            $("#d1,.bg,p").css("background", "pink");
+        })
+    </script>
+</head>
+
+<body>
+    <div id="d1">11111</div>
+    <div id="d2">2222</div>
+    <p id="p1">ppppp</p>
+    <div class="c1">3333333</div>
+    <div class="c1">44444</div>
+    <div>
+        <p class="c1">pppppp</p>
+    </div>
+    <div>55555</div>
+    <input class="c1" type="text"><br>
+    <input id="d3" type="button" value="anniu"><br>
+    <a id="d4" href="http://www.baidu.com">百度</a>
+</body>
+
+</html>

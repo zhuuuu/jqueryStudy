@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery3.x.js"></script>
+    <script>//工资表格
+       $(function () {
+           //表头
+           $("#salary tr:first").css("font-size", "30px");
+
+           //最后一行
+           $("#salary tr:last").css("color", "red");
+
+           //数据行 前三行
+           $("#salary tr:not(:first):lt(2)").css("font-size", "24px");
+
+           //数据行 奇数行
+           $("#salary tr:not(:first):not(:last):even").css("background-color", "yellow");
+
+           //数据行的倒数第三行的索引
+           var index = $("#salary tr:not(:first):not(:last)").length - 3;
+           //数据行的  最后两行
+           $("#salary tr:not(:first):not(:last):gt(" + index + ")").css("color", "blue");
+           //表格除去第一行和最后一行
+           var str = "#salary tr:not(:first):not(:last)";
+           //设置鼠标的样式
+           $(str).css("cursor", "pointer");
+           //光棒效果
+           var bg;
+           $(str).mouseover(function () {
+               //鼠标经过时记录当前的颜色
+               bg = $(this).css("background-color");
+               //设置当前行的背景颜色
+               $(this).css("background-color", "red");
+           })
+           $(str).mouseout(function () {
+               //鼠标离开时还原当前的颜色
+               $(this).css("background-color", bg);
+           })
+           //点击表格里的当前行，整行改变背景颜色
+           $(str).click(function () {
+               //使用选择器进行相对定位，只要在$()中指定第二个参数，第二个参数为相对的元素
+               // 形式如下$("ul",$(this)).css("background-color","red")
+               //相对定位，在当前的tr中找td
+               $("td", this).css("background-color", "red");//this(dom对象) 或 $(this)(jQuery对象)
+           })
+       })
+    </script>
+</head>
+<body>
+<table id="salary" width="400px" border="1px">
+    <tr>
+        <th>
+            姓名
+        </th>
+        <th>
+            年龄
+        </th>
+        <th>
+            工资
+        </th>
+    </tr>
+    <tr>
+        <td>
+            马户
+        </td>
+        <td>
+            50
+        </td>
+        <td>
+            10000000
+        </td>
+    </tr>
+    <tr>
+        <td>
+            马伦
+        </td>
+        <td>
+            40
+        </td>
+        <td>
+            1000000
+        </td>
+    </tr>
+    <tr>
+        <td>
+            小黑
+        </td>
+        <td>
+            18
+        </td>
+        <td>
+            100000
+        </td>
+    </tr>
+    <tr>
+        <td>
+            小白
+        </td>
+        <td>
+            20
+        </td>
+        <td>
+            10000
+        </td>
+    </tr>
+    <tr>
+        <td>
+            蒋卫生
+        </td>
+        <td>
+            17
+        </td>
+        <td>
+            1000
+        </td>
+    </tr>
+    <tr>
+        <td>
+            汇总：
+        </td>
+        <td colspan="2">&nbsp;
+        </td>
+    </tr>
+</table>
+</body>
+</html>

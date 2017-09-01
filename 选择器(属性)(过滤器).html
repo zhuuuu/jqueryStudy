@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--<script src="https://cdn.bootcss.com/jquery/1.12.3/jquery.js"></script>-->
+    <script src="jquery3.x.js"></script>
+    <script>
+        //属性过滤选择器([])  用[]表示      多属性[][]    开始^=  结尾$=  不等!=   含有*=
+        //$(div[id])选取有id属性的<div>
+        //$(div[title=test]) 选取title属性为“test”的 <div>   $(div[title!=test])
+        //$(div[id*=div])选取给定属性是以包含某些值的元素
+        $(function () {
+            $("input[id]").css("background-color", "red");
+            $("input[type=text]").css("background-color", "pink");
+            $("input[type=text][name=n1]").val(11111);
+            $("input[id*=d]").val("dddddd");//含有这个字母的都选中
+            $("input[class^=c]").css("background-color", "blue");
+            $("input[name$=1]").val(22222);
+            $("input[type!=text]").css("background-color", "green");
+        })
+    </script>
+</head>
+
+<body>
+    <input id="d1" type="text"><br>
+    <input id="d2" type="text"><br>
+    <input class="c1" type="text"><br>
+    <input class="c2" type="text"><br>
+    <input type="button" value="button"><br>
+    <input class="c3" type="button" value="click"><br>
+    <input class="c3" type="button" value="click"><br>
+    <input type="text" name="m1"><br>
+    <input type="text" name="name"><br>
+    <input type="text" name="name1"><br>
+    <input id="d3" type="checkbox" /><br>
+    <input class="c4" type="radio"><br>
+    <input type="radio">
+    <br/>
+    <span>sss</span>
+</body>
+
+</html>

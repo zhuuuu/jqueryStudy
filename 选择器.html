@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script>
+        选择器
+        1 属性过滤选择器([])
+            $(div[id])选取有id属性的<div>
+            $(div[title=test]) 选取title属性为“test”的 <div>   $(div[title!=test])
+            $(div[id*=div])选取给定属性是以包含某些值的元素
+            还可以选择开头、结束、包含等，条件还可以复合（*）
+        2 表单对象选择器（过滤器）
+            $("#form1：enabled")选取id为form1的表单内所有启用的元素   $("#form1：disabled")禁用
+            $("input:checked")选取所有选中的元素（Radio、CheckBox）
+            $(select option:selected)选取所有选中的选项元素（下拉列表）
+        3.表单选择器(:)
+            $(":input")选取所有<input>、<textarea>、<select>和<button>元素，$("input")只选取<input>标签
+            $(":text")选取所有单行文本框，等价于$("input[type=text]")
+            $(":password")选取所有密码框。同理:radio、 :checkbox、:submit、:image、:reset、:button、:file、:hidden
+    </script>
+</head>
+<body>
+<div></div>
+</body>
+</html>

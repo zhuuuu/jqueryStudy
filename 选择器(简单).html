@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery3.x.js"></script>
+    <script>
+        //$("tr:first")               选择所有tr元素的第一个
+        //$("tr:last")                选择所有tr元素的最后一个
+        //$("tr:even")                选择所有的tr元素的第0，2，4... ...个元素（注意：因为所选择的多个元素时为数组，所以序号是从0开始）
+        //$("tr:odd")                 选择所有的tr元素的第1，3，5... ...个元素
+        //$("td:eq(2)")               选择所有的td元素中序号为2的那个td元素
+        //$("td:gt(4)")               选择td元素中序号大于4的所有td元素
+        //$("td:lt(4)")               选择td元素中序号小于4的所有的td元素
+        //$(":header")                选择所有的h1.....h6元素
+        //$("div:animated")           选择正在执行动画的<div>元素
+        $(function () {
+            $("input:first").css("background","red");
+            $("input:last").css("background","yellow");
+            $("input:even").css("background","pink" );
+            //第4个
+            $("input:eq(3)").css("width","90px");
+            //前3个
+            $("input:lt(3)").css("height","50px");
+            $("input:not(:last)").val(111);
+            $("input:gt(4)").css("background","gray");
+            $(":header").css("font-size","30px");
+            $("div:not(:first)").css("background","red");
+            //倒数第3项的索引
+            var index=$("input").length-3;
+            //后两项
+            $("input:gt("+index+")").css("background","aqua");//取变量的值("+index+")    gt("+index+")相当于gt(3)
+        })
+    </script>
+</head>
+<body>
+<h1>hhhhhh</h1><br>
+<input type="text"value=""><br>
+<input  class="bg" type="text" value=""><br>
+<input type="text" value=""><br>
+<input  id="d1" type="text" value=""><br>
+<input type="text" value=""><br>
+<input type="text" value=""><br>
+<input type="text" value=""><br>
+<input type="text" value=""><br>
+<input type="text" value=""><br>
+<div>33333
+    <div>55555</div>
+</div>
+<div>4444</div>
+<h2>2222222</h2>
+</body>
+</html>

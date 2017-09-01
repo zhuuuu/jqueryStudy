@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="jquery3.x.js"></script>
+    <script>
+        //表单对象选择器（过滤器）
+        //$("#form1：enabled")选取id为form1的表单内所有启用的元素   $("#form1：disabled")禁用
+        //$("input:checked")选取所有选中的元素（Radio、CheckBox）
+        //$(select option:selected)选取所有选中的选项元素（下拉列表）
+        //表单选择器(:)   用：表示
+        // $(":input")选取所有<input>、<textarea>、<select>和<button>元素，$("input")只选取<input>标签
+        // $(":text")选取所有单行文本框，等价于属性选择器$("input[type=text]")
+        // $(":password")选取所有密码框。同理:radio、 :checkbox、:submit、:image、:reset、:button、:file、:hidden
+        // :diabled  :checked :selected   表单可以和限制条件一块使用。
+
+        $(function () {
+            $("input[type=text]:disabled").css("background-color", "red");
+            $("input[type=text]:enabled").css("background-color", "pink");
+//            $("input[type=checkbox]:checked").css("background-color", "blue");
+            $("select option:selected").css("background", "red");
+            $(":text:disabled").css("background-color", "blue");
+            $(":text:disabled[id!=d1]").css("background", "black");
+            $(":password[name=123]:checked").val(2222);
+//            $(":button[id!=btn]").val(11);
+//            $("input[type=checkbox]:checked").removeAttr("checked");
+            $(":radio:eq(3)").attr("checked", "true");
+            $(":radio:eq(3)").attr("checked", "checked"); //checked true都可以，一般用true，比如没选中 就fasle了对应的
+            $(".bg").click(function () {
+                alert($(":radio:checked").val());
+
+            })
+            //单选 多选框包装集 需要each（function(){ this是这个包装集中每个DOM对象 }）  $对象.each  this表示DOM
+            $("#btn").click(function () {
+                var i = "";
+              //实例的each，封装了$.each
+                $(":checkbox:checked").each(function () {
+                   i += $(this).val() + ",";
+                })
+                alert(i);
+            })
+        })
+
+    </script>
+</head>
+<body>
+<input id="d1" type="text" disabled="disabled"><br>
+<input id="d2" type="text" disabled="disabled"><br>
+<input class="c1" type="text"><br>
+<input class="c2" type="text"><br>
+<input id="btn" type="button" value="click"><br>
+<input class="bg" type="button" value="cl"><br>
+<input type="button" value="cli"><br>
+<!--<input type="checkbox" checked="checked"><br>-->
+爱好：<br>
+<input type="checkbox" name="c" value="w" > 玩
+<input type="checkbox" name="c" value="cf" >吃饭
+<input type="checkbox" name="c" value="sj">睡觉
+<input type="checkbox" name="c" value="ddd " >打豆豆
+<input type="checkbox" name="c" value="kds">看电视 <br>
+性别：<br>
+<input type="radio" name="sex" value="nan">男<br>
+<input type="radio" name="sex" value="nv">女<br>
+<input type="radio"><br>
+<input type="radio"><br>
+<input id="d4" type="text"><br>
+<select name="name" id="d3">
+    <option selected="selected" value="">下拉1</option>
+    <option value="">下拉2</option>
+</select><br>
+密码：<input type="password" name="123" value="111" checked="checked"><br>
+密码：<input type="password" name="234" value="111"><br>
+密码：<input type="password" name="123" value="111"><br>
+</body>
+</html>
