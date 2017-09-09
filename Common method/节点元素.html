@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://cdn.bootcss.com/jquery/1.12.3/jquery.js"></script>
+    <script >
+        // .next()  获取节点之后的挨着得第一同辈元素
+        // .next("div") 紧邻的第一个div标签
+        // .nextAll() 获取节点之后的所有同辈元素
+        //.prev()、  .prevAll()兄弟中之前的元素
+        // .siblings() 获取所有同辈的兄弟节点
+        // .children() 找子元素   所有子元素中查找，只从孩子元素中查找，不在孙子及以后查找
+        // .parent() 找父元素
+        //  .end() 返回最近一次"破坏性"操作之前的对象
+        $(function () {
+            $("#d3").next().css("background","red");//等价于下面
+        //            $("#d3+p").css("background", "red");
+        //            $("#d3").next("div").css("background", "red");//这样找不到
+        //            $("#d3").nextAll().css("background", "yellow");
+        //            $("#d3").nextAll("div").css("background", "yellow");
+        //            $("#d3").siblings().css("background", "blue");
+        //            $("#d3").children().text(666666666666);
+        //            $("#d3").children().css("background", "pink");
+        //            $("#d4").parent().css("background", "blue");
+        //d3及之前的所有元素
+        //            $("#d3").prevAll().css("background", "blue").end().css("background", "blue");//等价于下面
+        $("#d3").prevAll().andSelf().css("background", "blue");
+        })
+
+    </script>
+
+</head>
+<body>
+<div>1111111
+    <p>pp111111</p></div>
+<div>3333333</div>
+<div>5555555</div>
+<div id="d3">
+    <div>dddddddddddd
+        <div id="d4">aaaaaaaaa</div>
+    </div>
+    <div>qqqqqqqqqqqq</div>
+    <p>pqpqpqpqpqpq</p>
+</div>
+<p>ppppp</p>
+<div>11111
+    <div>aaaaaaaaaa</div></div>
+<div>22222</div>
+<div>33333</div>
+<div>44444</div>
+
+</body>
+</html>
