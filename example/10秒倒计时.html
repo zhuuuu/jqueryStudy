@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/jquery/1.12.3/jquery.js"></script>
+    <script>
+        $(function(){
+            setCount();
+        })
+        var timerId = setInterval("setCount()", 1000);
+        var count = 10;
+        function setCount() {
+            if (count > 0) {
+                $("#d1").val("请仔细阅读协议(" + count + ")秒");
+                count--;
+            } else {
+                //启动按钮
+                $("#d1").attr("disabled", false).val("同意");
+                //停止定时器
+                clearInterval(timerId);
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <input id="d1" type="button" value="注册" disabled="disabled">
+</body>
+
+</html>

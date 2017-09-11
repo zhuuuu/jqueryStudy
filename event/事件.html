@@ -13,18 +13,53 @@
         //one()绑定一次性事件，随后立即调用unbind()
         //hover()两个事件：鼠标放上来和离开
         //toggle()单击事件，切换进行
-        //        $(function () {
-        //      })
-        window.onload = function () {
+        $(function () {
+
+            // window.onload = function () {
+
             $(":button[value=hover]").click(function () {
                 $("#btn").hover(function () {
-                    alert("hover enter");
+                 alert("hover enter");
                 }, function () {
                     alert("hover leave");
                 })
-
             })
-        }
+            // $(":button[value=bind]").click(function () {
+            //bind需要3个参数，1是要执行的什么时间 2给后面的方法传递的值 3接收值，通过事件参数e
+            // $("#d1").bind("click", "111", function (e) {
+            // alert("bind");
+            // alert(e.data);
+            // })
+            // })
+            $(":button[value=bind]").click(function () {
+                $("#d1").bind({
+                    "click": function () {
+                        alert(1111);
+                    }, "mouseover": function () {
+                        alert("aaaaa");
+                    }
+                })
+            })
+            //解除事件绑定
+            $(":button[value=unbind]").click(function () {
+                //解除指定的事件
+                // $("#d1").unbind("mouseover");
+                //解除所有事件
+                $("#d1").unbind();
+            })
+            $(":button[value=one]").click(function () {
+                $("#d1").one("click", function () {
+                    alert(00000);
+                })
+            })
+            $(":button[value=toggle]").click(function () {
+                $("#d2").toggle(function () {
+                    alert("zzzz");
+                }, function () {
+                    alert("hhhh");
+                })
+            })
+        })
     </script>
 </head>
 
@@ -32,6 +67,12 @@
     <input type="button" value="你好" id="btn"><br/>
     <input type="button" value="hover"><br/>
     <img src="" alt="">
+    <input type="button" value="名字" id="d1"><br>
+    <input type="button" value="bazi" id="d2"><br>
+    <input type="button" value="bind"><br>
+    <input type="button" value="unbind"><br>
+    <input type="button" value="one"><br>
+    <input type="button" value="toggle">
 </body>
 
 </html>

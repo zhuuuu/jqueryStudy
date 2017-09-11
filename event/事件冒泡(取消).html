@@ -14,12 +14,21 @@
             })
             $("p").click(function (e) {
                 alert("ppp");
+                //在事件响应函数中，return false可以取消事件冒泡
+                // return false;
                 e.stopPropagation();
+            })
+            $("#lnk").click(function(e){
+                alert("zzzzz");
+                 //在事件响应函数中，return false取消后续内容的执行
+                //  return false;
+                 e.preventDefault();
             })
         })
     </script>
 </head>
 <body>
+    <a id="lnk" href="http://www.baidu.com">百度</a>
 <table>
     <tr>
         <td><p>1111</p></td>

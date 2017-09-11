@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/jquery/1.12.3/jquery.js"></script>
+<script>
+$(function(){
+    $("#all li").mousemove(function(){
+        $(this).css("background","red");
+    }).mouseout(function(){
+        $(this).css("background","white");
+    }).css("cursor","pointer");
+    $("#all li").click(function(){
+        //remove()会把对象移除，但样式还在
+        $(this).remove().css("background","white").appendTo("#r");
+    })
+})
+    </script>    
+</head>
+<body>
+ <ul id="all">
+     <li>小明</li>
+     <li>小芳</li>
+     <li>小红</li>
+     <li>小白</li>
+     <li>小黑</li>
+ </ul>
+ <hr>
+ <ul id="r"></ul>
+</body>
+</html>

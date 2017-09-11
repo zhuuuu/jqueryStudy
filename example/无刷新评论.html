@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/jquery/1.12.3/jquery.js"></script>
+    <script>
+        $(function () {
+            $("#d1").click(function () {
+                var name = $("#txtName").val();
+                var content = $("#txtContent").val();//表单元素
+                //获取文档中的table
+               var $table=$("#tb");
+                //判断页面上是否table
+                if($table.length <= 0) {
+                    //动态创建table
+                    var $table = $(" <table id='tb' border='1px'></table>")
+                    $("#r").append($table);
+                }
+                var $tr = $("<tr></tr>")
+                $tr.prependTo($table);
+                var $td = $("<td>" + name + "</td>");
+                $td.appendTo($tr);
+                $td = $("<td>" + content + "</td>");
+                $td.appendTo($tr);
+            })
+        })
+    </script>
+</head>
+
+<body>
+    评论列表：
+    <div id="r">
+
+    </div>
+    用户：<input type="text" id="txtName"><br> 评论：
+    <textarea id="txtContent" cols="30" rows="15"></textarea><br>
+    <input id="d1" type="button" value="send">
+</body>
+
+</html>

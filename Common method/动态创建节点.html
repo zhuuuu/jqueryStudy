@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- <script src="jquery3.x.js"></script> -->
+
+    <script src="https://cdn.bootcss.com/jquery/1.12.3/jquery.js"></script>
+    <script>
+        //        1.动态创建节点
+        //            append()      $("#d1").append($link);把后面对象的添加到前面的容器
+        //            appendTo()   $link.appendTo($("#d1")); 把前面的对象，添加到后面的容器
+        //            prepend()     $("#d1").prepend($link);把后面的对象添加到前面容器(作用：内容之前或开始标签之后)
+        //            prependTo()   $link.prependTo($("#d1"));把前面的对象，添加到后面的容器(作用：内容之前或开始标签之后)
+        //            after()       $("#d1").after($link);    把标签添加到结束标签之后（兄弟节点）
+        //            before()                                 把标签添加到开始标签之前（兄弟节点）
+        //
+        //        2.删除节点
+        //            remove() $("#d3 li:last").remove();找到对象，并把这个对象删除，可以返回
+        //            empty()  $("#d3 li:last").empty(); 清空标签之间的内容，节点还在
+        $(function () {
+            $("#btn").click(function () {
+                //动态创建a标签，在内存中
+                var $link = $("<a href='http://www.baidu.com'>百度</a>");
+                // 给动态生成的控件注册事件(直接拿到对象.click)
+                //                $link.click(function () {
+                //                    alert("abc") ;
+                //                    return false;
+                //                })
+                //想在页面上显示出来，调用append方法
+                //把a标签放到div中,div的结束标签之前
+                $("#d1").append($link);
+                debugger
+                $("#d1").prepend('111111')
+                //append方法用来在元素的末尾追加元素
+                $("#d1").after($link);
+                // $("#d1").before($link);
+            })
+            $("#d2").click(function(){
+                // $("#d3 li:last").remove();
+                $("#d3 li:last").empty();
+            })
+        })
+    </script>
+</head>
+
+<body>
+    <input type="button" name="name" value="create" id="btn" />
+    <div id="d1"></div>
+    <input id="d2" type="button" value="remove">
+    <ul id="d3">
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+</body>
+
+</html>
